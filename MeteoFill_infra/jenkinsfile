@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    environment {
+        HEAT_TEMPLATE = "heat_template.yaml"
+        STACK_NAME = "my_stack"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Deploy Stack') {
+            steps {
+                script {
+                    sh """
+                    openstack stack create -t ${HEAT_TEMPLATE} ${STACK_NAME} \
+                    --parameter image_id=my_image \
+                    --parameter flavor_id=m1.small \
+                    --parameter network_id=my_network
+                    """
+                }
+            }
+        }
+    }
+}

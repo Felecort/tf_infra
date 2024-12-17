@@ -1,0 +1,46 @@
+heat_template_version: 2018-08-31
+
+description: >
+  ??????
+
+parameters:
+  instance_name:
+    type: string
+    default: test_instance
+    description: VM name
+
+  image_id:
+    type: string
+    description: image ID/name.
+
+  flavor_id:
+    type: string
+    description: flavor (size).openstack stack create -t teststack.yml
+
+  network_id:
+    type: string
+    description: net ID
+
+resources:
+  server_instance:
+    type: OS::Nova::Server
+    properties:
+      name: { get_param: instance_name }
+      image: { get_param: image_id }
+      flavor: { get_param: flavor_id }
+      networks:
+        - network: { get_param: network_id }
+# resources:
+#   my_instance:
+#     type: OS::Nova::Server
+#     properties:
+#       image: "ubuntu-20.04"
+#       flavor: "m1.small"
+#       key_name: "my_key"
+#       networks:
+#         - network: "private_network"
+
+outputs:
+  server_ip:
+    description: IP
+    value: { get_attr: [server_instance, first_address] }
