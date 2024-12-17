@@ -1,20 +1,10 @@
-- name: Установка Docker
+- name: Install Docker
   apt:
     name: docker.io
     state: present
   become: yes
-- name: Установка Docker Compose
+- name: Install Docker Compose
   apt:
     name: docker-compose
-    state: present
-  become: yes
-- name: Установка PostgreSQL
-  apt:
-    name: postgresql
-    state: present
-  become: yes
-- name: Установка RabbitMQ
-  apt:
-    name: rabbitmq-server
     state: present
   become: yes

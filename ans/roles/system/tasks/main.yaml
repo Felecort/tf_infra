@@ -1,4 +1,4 @@
-- name: Обновление системы
+- name: System update
   apt:
     update_cache: yes
     upgrade: dist
