@@ -1,2 +1,2 @@
 [servers]
-batashev_node ansible_host=192.168.199.246 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/openstack
+batashev_infra ansible_host=$(terraform output -raw instance_ip) ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/openstack
