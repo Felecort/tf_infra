@@ -1,6 +1,6 @@
 variable "instance_name" {
   description = "Name of the instance"
-  default     = "batashev_infa_"
+  default     = "batashev_infa_tf"
 }
 
 variable "key_name" {
