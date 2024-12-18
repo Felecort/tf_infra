@@ -1,3 +1,9 @@
+- name: Install gzip
+  apt:
+    name: gzip
+    state: present
+  become: yes
+
 - name: Install Docker
   apt:
     name: docker.io
