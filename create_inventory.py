@@ -6,5 +6,5 @@ if __name__ == "__main__":
     s = f'[servers]\nbatashev_infra ansible_host={ip} ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/openstack'
     with open('ans/inventory', 'w') as f:
         f.write(s)
-    with open('~/.instance_ip', 'w') as f:
+    with open('/home/ubuntu/.instance_ip', 'w') as f:
         f.write(ip)
